@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MediLab · נתנאל יוחאי מדינה — הכנה לבגרות בביולוגיה 5 יח"ל</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script>
+  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
+    "accent": "#2AA5CF",
+    "accent2": "#66B87A",
+    "theme": "paper",
+    "typeScale": 1.02,
+    "heroVariant": "editorial",
+    "headline": "ביולוגיה *קצר ולעניין.*\nשיעורים פרטיים,\nספרים שעושים סדר.",
+    "subhead": "אני נתנאל יוחאי מדינה — מורה לביולוגיה עם 10 שנות ניסיון. מלמד תלמידי 5 יח״ל אחד-על-אחד או בקבוצות קטנות, מקוון ופרונטלי, וכותב ספרי עזר שמסודרים בדיוק כמו שהבגרות דורשת.",
+    "cta": "קבעו שיעור היכרות",
+    "ctaSecondary": "הספרים שלי"
+  }/*EDITMODE-END*/;
+</script>
+<style>
+  :root{
+    --bg: #FBFAF5;
+    --bg-2: #F3F1E7;
+    --ink: #0F2338;
+    --ink-2: #3E5368;
+    --ink-3: #6F8398;
+    --line: #E5E1D1;
+    --line-2: #CFC9B2;
+    --accent: #2AA5CF;     /* logo blue */
+    --accent-2: #66B87A;   /* logo green */
+    --accent-ink: #ffffff;
+    --radius: 18px;
+    --maxw: 1280px;
+    --pad: clamp(20px, 4vw, 56px);
+    --type-scale: 1;
+    --serif: "Frank Ruhl Libre", ui-serif, Georgia, serif;
+    --sans: "Assistant", system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  html[data-theme="fresh"]{
+    --bg:#F4FBFC; --bg-2:#E4F2F6; --line:#CFE4EA; --line-2:#B4D3DB;
+    --ink:#0B2B3A; --ink-2:#395466; --ink-3:#6A8597;
+  }
+  html[data-theme="dark"]{
+    --bg:#0D1C2A; --bg-2:#152A3D; --line:#24405B; --line-2:#2E5275;
+    --ink:#F3FAFE; --ink-2:#B9CEDE; --ink-3:#7A93A8;
+  }
+
+  *{ box-sizing:border-box }
+  html,body{ margin:0; padding:0 }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--sans);
+    font-size: calc(16px * var(--type-scale));
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{ color:inherit; text-decoration:none }
+  img,svg{ display:block; max-width:100% }
+  button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; padding:0 }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad) }
+  .mono{ font-family:var(--mono); font-weight:500; letter-spacing:.02em }
+  .serif{ font-family:var(--serif); font-weight:500 }
+  .num{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--ink-3) }
+
+  /* ======== Top bar ======== */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in oklab, var(--bg) 85%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{ display:flex; align-items:center; justify-content:space-between; height:70px; gap:24px }
+  .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.01em; font-size:18px }
+  .brand img{ width:42px; height:42px; border-radius:10px; object-fit:cover; background:#fff; border:1px solid var(--line) }
+  .brand .sub{ font-family:var(--serif); font-weight:500; color:var(--ink-2); font-size:12px; display:block; line-height:1 }
+  .nav{ display:flex; gap:26px; font-size:14px; color:var(--ink-2) }
+  .nav a:hover{ color:var(--accent) }
+  .top-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px;
+    background:var(--ink); color:var(--bg);
+    font-size:14px; font-weight:600;
+  }
+  .top-cta:hover{ background:var(--accent); color:#fff }
+  @media (max-width:860px){ .nav{ display:none } .brand .sub{ display:none } }
+
+  .arr{ display:inline-block; transform:scaleX(-1); transition:transform .2s ease }
+  .btn:hover .arr, .top-cta:hover .arr{ transform:scaleX(-1) translateX(-3px) }
+
+  /* ======== Hero ======== */
+  .hero{ padding: clamp(48px,6vw,88px) 0 clamp(56px,6vw,96px); border-bottom:1px solid var(--line); position:relative; overflow:hidden }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr .9fr;
+    gap: clamp(28px,4vw,64px); align-items:end;
+  }
+  @media (max-width:960px){ .hero-grid{ grid-template-columns:1fr } }
+  .hero-kicker{ display:flex; align-items:center; gap:14px; margin-bottom:24px; flex-wrap:wrap }
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 12px; border-radius:999px;
+    border:1px solid var(--line-2); background:var(--bg);
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink-2);
+  }
+  .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent-2) 30%, transparent) }
+
+  h1.display{
+    font-weight:800;
+    font-size: clamp(44px, 7.2vw, 108px);
+    line-height:.92; letter-spacing:-.035em;
+    margin:0 0 22px; white-space:pre-line; text-wrap:balance;
+  }
+  h1.display em{
+    font-family:var(--serif); font-style:normal; font-weight:900;
+    color:var(--accent);
+    background: linear-gradient(180deg, transparent 62%, color-mix(in oklab, var(--accent-2) 35%, transparent) 62%);
+    padding:0 .08em;
+  }
+  .hero-sub{
+    font-size: clamp(16px, 1.3vw, 19px); color:var(--ink-2);
+    max-width:52ch; line-height:1.6; text-wrap:pretty; margin:0 0 30px;
+  }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; align-items:center }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 22px; border-radius:999px;
+    font-size:15px; font-weight:600;
+    transition:transform .2s ease, background .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--accent); color:var(--accent-ink) }
+  .btn-primary:hover{ transform:translateY(-1px); filter:brightness(1.05) }
+  .btn-ghost{ border-color:var(--line-2); color:var(--ink); background:transparent }
+  .btn-ghost:hover{ background:var(--bg-2) }
+
+  .hero-meta{
+    margin-top:36px; display:flex; gap:28px; flex-wrap:wrap;
+    color:var(--ink-3); font-size:13px;
+    border-top:1px solid var(--line); padding-top:20px;
+  }
+  .hero-meta b{ color:var(--ink); font-weight:700; display:block; font-size:26px; letter-spacing:-.02em; line-height:1 }
+  .hero-meta b .unit{ font-family:var(--mono); font-size:12px; color:var(--ink-3); font-weight:500; margin-inline-start:4px }
+
+  /* Hero visual — a "lab notebook" style card */
+  .hero-visual{ position:relative; min-height: 480px }
+  .nb{
+    position:relative; width:100%; height:100%;
+    background:#fff;
+    border:1px solid var(--line); border-radius:20px;
+    padding:22px; display:flex; flex-direction:column; gap:16px;
+    overflow:hidden;
+    box-shadow: 0 30px 60px -40px rgba(10,30,50,.25), 0 2px 0 var(--line) inset;
+  }
+  html[data-theme="dark"] .nb{ background:var(--bg-2); border-color:var(--line-2) }
+  .nb::before{
+    content:""; position:absolute; inset:0 0 0 0;
+    background: repeating-linear-gradient(to bottom, transparent 0 28px, color-mix(in oklab, var(--accent) 8%, transparent) 28px 29px);
+    pointer-events:none;
+  }
+  .nb-head{
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--ink-3);
+    position:relative;
+  }
+  .nb-head .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:4px 10px; border-radius:999px;
+    background:var(--bg-2); border:1px solid var(--line); color:var(--ink-2);
+  }
+  .nb-q{
+    position:relative;
+    background:var(--bg-2); border:1px solid var(--line);
+    border-radius:14px; padding:16px 18px;
+  }
+  .nb-q .qnum{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--accent) }
+  .nb-q h5{ margin:6px 0 10px; font-size:15.5px; font-weight:600; line-height:1.45; letter-spacing:-.01em }
+  .nb-q ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px }
+  .nb-q li{
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:13.5px; color:var(--ink-2);
+    padding:9px 12px; border-radius:10px;
+    border:1px solid var(--line); background:#fff;
+  }
+  html[data-theme="dark"] .nb-q li{ background:color-mix(in oklab, var(--bg-2) 75%, #000 0%) }
+  .nb-q li .mark{
+    width:20px; height:20px; border-radius:6px;
+    flex:0 0 20px;
+    display:grid; place-items:center;
+    background:var(--bg-2); border:1px solid var(--line-2);
+    font-family:var(--mono); font-size:11px; color:var(--ink-3);
+  }
+  .nb-q li.correct{ border-color: color-mix(in oklab, var(--accent-2) 70%, var(--line)); background: color-mix(in oklab, var(--accent-2) 10%, #fff) }
+  .nb-q li.correct .mark{ background: var(--accent-2); color:#fff; border-color:var(--accent-2) }
+  .nb-q li.wrong{ border-color: color-mix(in oklab, #D0533E 60%, var(--line)); background: color-mix(in oklab, #D0533E 8%, #fff) }
+  .nb-q li.wrong .mark{ background:#D0533E; color:#fff; border-color:#D0533E }
+  .nb-feedback{
+    font-family:var(--serif); font-weight:500; font-size:14px; line-height:1.5;
+    color:var(--ink-2);
+    border-right:3px solid var(--accent-2);
+    padding:6px 12px 6px 0; background: color-mix(in oklab, var(--accent-2) 8%, var(--bg));
+    border-radius:4px;
+  }
+  .nb-meta{
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px; position:relative;
+  }
+  .nb-readout{
+    background:var(--bg-2); border:1px solid var(--line);
+    border-radius:12px; padding:10px 14px;
+  }
+  .nb-readout .k{ font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase }
+  .nb-readout .v{ font-size:18px; font-weight:700; letter-spacing:-.02em; margin-top:4px }
+  .nb-readout .v small{ font-family:var(--mono); font-size:11px; color:var(--ink-3); font-weight:500; margin-inline-start:4px }
+
+  /* Hero variants */
+  html[data-hero="manifesto"] .hero-grid{ grid-template-columns:1fr; text-align:center; align-items:center; justify-items:center }
+  html[data-hero="manifesto"] .hero-visual{ display:none }
+  html[data-hero="manifesto"] h1.display{ font-size: clamp(48px, 9.5vw, 150px); max-width:18ch }
+  html[data-hero="manifesto"] .hero-sub{ margin-inline:auto }
+  html[data-hero="manifesto"] .hero-kicker, html[data-hero="manifesto"] .hero-ctas{ justify-content:center }
+  html[data-hero="manifesto"] .hero-meta{ justify-content:center; max-width:720px; margin-inline:auto }
+
+  html[data-hero="data"] .hero-grid{ grid-template-columns: 1fr 1.15fr }
+  @media (max-width:960px){ html[data-hero="data"] .hero-grid{ grid-template-columns:1fr } }
+
+  /* ======== Teacher strip ======== */
+  .strip{
+    border-bottom:1px solid var(--line);
+    padding: 18px 0;
+    overflow:hidden;
+    background:var(--bg-2);
+  }
+  .strip-row{
+    display:flex; gap:48px; align-items:center;
+    white-space:nowrap;
+    animation:slide 38s linear infinite;
+    font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+  }
+  .strip-row span{ display:inline-flex; align-items:center; gap:12px }
+  .bul{ width:5px; height:5px; border-radius:50%; background:var(--accent) }
+  @keyframes slide{ from{ transform:translateX(0) } to{ transform:translateX(50%) } }
+
+  /* ======== Sections ======== */
+  section.block{ padding: clamp(72px, 9vw, 140px) 0; border-bottom:1px solid var(--line) }
+  .section-head{
+    display:grid; grid-template-columns: 1fr 2fr;
+    gap: clamp(24px, 5vw, 64px);
+    margin-bottom: clamp(32px, 5vw, 64px);
+    align-items:end;
+  }
+  @media (max-width:780px){ .section-head{ grid-template-columns:1fr } }
+  .section-head h2{
+    font-weight:800;
+    font-size: clamp(32px, 4.6vw, 60px);
+    line-height:1; letter-spacing:-.03em;
+    margin:14px 0 0; text-wrap:balance;
+  }
+  .section-head h2 em{
+    font-family:var(--serif); font-style:normal; font-weight:900; color:var(--accent);
+  }
+  .section-head .lead{
+    color:var(--ink-2); font-size: clamp(15px,1.1vw,17px);
+    max-width:56ch; text-wrap:pretty; margin:0;
+  }
+
+  /* ======== About the teacher ======== */
+  .about{
+    display:grid; grid-template-columns: minmax(220px, 280px) 1fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items:start;
+  }
+  @media (max-width: 720px){
+    .about{ grid-template-columns: 1fr }
+    .about-card{ max-width: 280px; margin-inline: auto }
+  }
+  @media (max-width:880px){ .about{ grid-template-columns:1fr } }
+  .about-card{
+    position:relative;
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    padding: 18px; display:flex; flex-direction:column; gap:12px;
+    overflow:hidden;
+  }
+  html[data-theme="dark"] .about-card{ background: var(--bg-2) }
+  html[data-theme="dark"] .about-card{ background:var(--bg-2) }
+  .about-card::before{
+    content:""; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(135deg, color-mix(in oklab, var(--accent) 5%, transparent) 0 6px, transparent 6px 14px);
+    pointer-events:none; opacity:.6;
+  }
+  .portrait{
+    position:relative;
+    aspect-ratio: 4/5;
+    background: color-mix(in oklab, var(--accent) 14%, var(--bg-2));
+    border-radius:16px;
+    border:1px solid var(--line-2);
+    display:grid; place-items:center;
+    overflow:hidden;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.05);
+  }
+  .portrait img{
+    width:100%; height:100%; object-fit:cover; object-position:center 18%;
+    display:block;
+  }
+  .portrait::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(to top, color-mix(in oklab, var(--bg) 70%, transparent) 0%, transparent 32%);
+  }
+  .portrait .cap{
+    position:absolute; inset-inline-start:12px; inset-block-end:12px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em;
+    color:var(--ink-2); background:var(--bg); padding:5px 9px; border-radius:6px;
+    border:1px solid var(--line);
+  }
+  .about-body h2{
+    font-weight:800; font-size: clamp(28px,3.2vw,42px); line-height:1.1; letter-spacing:-.025em;
+    margin:0 0 14px; text-wrap:balance;
+  }
+  .about-body h2 em{ font-family:var(--serif); font-style:normal; font-weight:900; color:var(--accent) }
+  .about-body p{ color:var(--ink-2); font-size:16.5px; line-height:1.7; max-width:56ch; margin:0 0 14px; text-wrap:pretty }
+  .about-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px }
+  .about-tag{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    padding:6px 10px; border-radius:999px;
+    background:var(--bg-2); border:1px solid var(--line); color:var(--ink-2);
+  }
+  .about-tag.blue{ background: color-mix(in oklab, var(--accent) 12%, #fff); border-color: color-mix(in oklab, var(--accent) 30%, var(--line)); color: color-mix(in oklab, var(--accent) 60%, var(--ink)) }
+  .about-tag.green{ background: color-mix(in oklab, var(--accent-2) 14%, #fff); border-color: color-mix(in oklab, var(--accent-2) 40%, var(--line)); color: color-mix(in oklab, var(--accent-2) 45%, var(--ink)) }
+
+  /* ======== Features grid ======== */
+  .features{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--line); border-left:1px solid var(--line);
+  }
+  @media (max-width:960px){ .features{ grid-template-columns:repeat(2,1fr) } }
+  @media (max-width:620px){ .features{ grid-template-columns:1fr } }
+  .feature{
+    padding: 32px 30px 36px;
+    border-bottom:1px solid var(--line); border-right:1px solid var(--line);
+    display:flex; flex-direction:column; gap:12px;
+    min-height: 280px; position:relative;
+    transition:background .2s ease;
+  }
+  .feature:hover{ background:var(--bg-2) }
+  .feature .icon{
+    width:44px; height:44px;
+    border:1px solid var(--line-2); border-radius:12px;
+    display:grid; place-items:center;
+    color:var(--accent); background: color-mix(in oklab, var(--accent) 8%, var(--bg));
+  }
+  .feature .icon.g{ color:var(--accent-2); background: color-mix(in oklab, var(--accent-2) 10%, var(--bg)) }
+  .feature .icon svg{ width:22px; height:22px }
+  .feature h3{ margin:0; font-size: clamp(19px,1.4vw,22px); font-weight:700; letter-spacing:-.01em }
+  .feature p{ margin:0; color:var(--ink-2); font-size:15px; line-height:1.6 }
+  .feature .tag{ margin-top:auto; font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--ink-3) }
+  .feature .count{
+    font-family:var(--serif); font-weight:900; font-size:42px;
+    line-height:1; letter-spacing:-.03em; color:var(--accent);
+  }
+  .feature .count.g{ color:var(--accent-2) }
+
+  /* ======== Progress tree (diagram) ======== */
+  .tree-wrap{
+    display:grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,48px);
+    align-items:stretch;
+  }
+  @media (max-width:960px){ .tree-wrap{ grid-template-columns:1fr } }
+  .tree-card{
+    background:#fff; border:1px solid var(--line); border-radius:20px;
+    padding: 28px; display:flex; flex-direction:column; gap:18px;
+    position:relative; overflow:hidden;
+  }
+  html[data-theme="dark"] .tree-card{ background:var(--bg-2) }
+  .tree-svg{ width:100%; height:auto }
+  .tree-legend{ display:flex; gap:16px; font-size:13px; color:var(--ink-2); flex-wrap:wrap }
+  .tree-legend .sw{ width:12px; height:12px; border-radius:3px; display:inline-block; margin-inline-end:6px; vertical-align:middle }
+  .analysis{ display:flex; flex-direction:column; gap:14px }
+  .analysis h3{ margin:0; font-weight:800; font-size:24px; letter-spacing:-.015em }
+  .axis{
+    background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding: 18px;
+  }
+  .axis h4{ margin:0 0 8px; font-size:13px; font-family:var(--mono); letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase }
+  .axis .bars{ display:flex; flex-direction:column; gap:10px }
+  .axis .row{ display:grid; grid-template-columns: 120px 1fr 40px; gap:10px; align-items:center; font-size:13.5px }
+  .axis .bar{ height:8px; background:var(--line); border-radius:999px; overflow:hidden }
+  .axis .bar span{ display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent-2)) }
+  .axis .val{ font-family:var(--mono); font-size:12px; color:var(--ink-3); text-align:end }
+
+  /* ======== Process ======== */
+  .process{ display:grid; grid-template-columns: repeat(4, 1fr); gap:0 }
+  @media (max-width:900px){ .process{ grid-template-columns:repeat(2,1fr) } }
+  @media (max-width:520px){ .process{ grid-template-columns:1fr } }
+  .step{ padding: 28px 22px 32px; border-top:1px solid var(--ink); position:relative }
+  .step .step-n{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; color:var(--ink-3) }
+  .step h4{ margin:16px 0 8px; font-size:22px; font-weight:700; letter-spacing:-.015em }
+  .step p{ margin:0; color:var(--ink-2); font-size:14.5px }
+  .step::after{ content:""; position:absolute; top:-1px; inset-inline-end:0; width:40%; height:3px; background:var(--accent) }
+  .step:nth-child(2)::after{ background:var(--accent-2) }
+  .step:nth-child(3)::after{ background:var(--accent) }
+  .step:nth-child(4)::after{ background:var(--accent-2) }
+
+  /* ======== Testimonials ======== */
+  .testi-head-right{ text-align:start }
+  .testi-grid{
+    column-count: 3; column-gap: 20px;
+  }
+  @media (max-width:960px){ .testi-grid{ column-count:2 } }
+  @media (max-width:640px){ .testi-grid{ column-count:1 } }
+  .card-t{
+    break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid;
+    margin:0 0 20px;
+    padding: 24px;
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    display:flex; flex-direction:column; gap:14px;
+    position:relative;
+  }
+  html[data-theme="dark"] .card-t{ background:var(--bg-2) }
+  .card-t .mark{
+    font-family:var(--serif); font-weight:900;
+    font-size:64px; line-height:.5; color:var(--accent);
+    height:28px;
+  }
+  .card-t blockquote{
+    margin:0; font-size:15.5px; line-height:1.65; color:var(--ink);
+    text-wrap:pretty;
+  }
+  .card-t .who{
+    display:flex; align-items:center; gap:12px;
+    margin-top:4px; padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .card-t .avatar{
+    width:52px; height:52px; border-radius:50%;
+    display:grid; place-items:center;
+    color:#fff; font-weight:700; font-size:17px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    flex:0 0 52px;
+    border:2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .card-t .name{ font-weight:700; font-size:14.5px }
+  .card-t .role{ color:var(--ink-3); font-family:var(--mono); font-size:11px; letter-spacing:.08em }
+  .grade-badge{
+    position:absolute; inset-block-start:-10px; inset-inline-start:16px;
+    background:var(--accent-2); color:#fff;
+    padding:5px 12px; border-radius:999px;
+    font-family:var(--serif); font-weight:900;
+    font-size:15px; letter-spacing:-.01em;
+    box-shadow: 0 6px 14px -6px rgba(0,0,0,.25);
+  }
+  .grade-badge.b{ background:var(--accent) }
+  .grade-badge .lbl{ font-family:var(--mono); font-size:9px; font-weight:500; letter-spacing:.1em; margin-inline-end:4px; opacity:.85 }
+
+  .stats{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;
+    margin-top: 12px;
+  }
+  @media (max-width:780px){ .stats{ grid-template-columns: repeat(2, 1fr) } }
+  .stat{
+    padding: 22px; background:var(--bg); border:1px solid var(--line); border-radius:16px;
+    display:flex; flex-direction:column; justify-content:space-between; min-height:140px;
+  }
+  .stat .big{
+    font-family:var(--serif); font-weight:900;
+    font-size: clamp(36px,4vw,52px); letter-spacing:-.035em; line-height:1;
+  }
+  .stat .big em{ color:var(--accent); font-style:normal }
+  .stat .big.g em{ color:var(--accent-2) }
+  .stat .lbl{ color:var(--ink-3); font-size:12px; font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase }
+
+  /* ======== Pricing ======== */
+  .pricing{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px }
+  @media (max-width:960px){ .pricing{ grid-template-columns:1fr } }
+  .plan{
+    padding: 28px; border:1px solid var(--line); background:#fff; border-radius:20px;
+    display:flex; flex-direction:column; gap:14px; position:relative;
+  }
+  html[data-theme="dark"] .plan{ background:var(--bg-2) }
+  .plan.featured{ background:var(--ink); color:var(--bg); border-color:var(--ink) }
+  .plan.featured .muted{ color: color-mix(in oklab, var(--bg) 72%, transparent) }
+  .plan .name{ display:flex; align-items:center; justify-content:space-between; font-weight:700; font-size:17px }
+  .plan .price{ display:flex; align-items:baseline; gap:6px; margin-top:4px }
+  .plan .price .num{ font-family:var(--serif); font-weight:900; font-size: clamp(44px,4.5vw,60px); letter-spacing:-.03em; line-height:1 }
+  .plan .price .cur{ font-family:var(--mono); color:var(--ink-3); font-size:14px }
+  .plan.featured .price .cur{ color: color-mix(in oklab, var(--bg) 65%, transparent) }
+  .plan ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14.5px }
+  .plan li{ display:flex; gap:10px; align-items:flex-start }
+  .plan li .ch{ flex:0 0 16px; margin-top:4px; color:var(--accent-2) }
+  .plan.featured li .ch{ color: color-mix(in oklab, #fff 85%, var(--accent-2)) }
+  .plan .btn{ justify-content:center; margin-top:auto }
+  .plan.featured .btn-primary{ background:var(--bg); color:var(--ink) }
+  .plan .muted{ color:var(--ink-3); font-size:13px }
+  .plan .badge{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+    padding:4px 10px; border-radius:999px;
+    background:var(--accent-2); color:#fff;
+  }
+
+  /* ======== FAQ ======== */
+  .faq{ display:grid; border-top:1px solid var(--line) }
+  details.q{ border-bottom:1px solid var(--line); padding: 20px 0 }
+  details.q > summary{
+    list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer;
+    font-size: clamp(17px,1.4vw,20px); font-weight:600; letter-spacing:-.01em;
+  }
+  details.q > summary::-webkit-details-marker{ display:none }
+  details.q .plus{
+    width:28px; height:28px; border-radius:50%;
+    border:1px solid var(--line-2); display:grid; place-items:center; color:var(--ink-2);
+    transition:transform .25s ease, background .25s ease, color .25s ease; flex:0 0 28px;
+  }
+  details.q[open] .plus{ background:var(--accent); color:#fff; border-color:var(--accent); transform:rotate(45deg) }
+  details.q .answer{
+    color:var(--ink-2); max-width:78ch; padding: 12px 0 6px 0;
+    font-size:15px; line-height:1.7;
+  }
+
+  /* ======== Final CTA ======== */
+  .final{
+    padding: clamp(72px,8vw,120px) 0;
+    background:var(--ink); color:var(--bg);
+    position:relative; overflow:hidden;
+  }
+  .final::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(600px 320px at 12% 10%, color-mix(in oklab, var(--accent) 55%, transparent), transparent 70%),
+      radial-gradient(520px 300px at 90% 110%, color-mix(in oklab, var(--accent-2) 55%, transparent), transparent 70%);
+    pointer-events:none;
+  }
+  .final-inner{ position:relative; display:grid; grid-template-columns: 1.3fr .7fr; gap:48px; align-items:end }
+  @media (max-width:780px){ .final-inner{ grid-template-columns:1fr } }
+  .final h2{
+    font-weight:800; font-size: clamp(40px,6vw,88px);
+    line-height:.96; letter-spacing:-.035em; margin:0;
+  }
+  .final h2 em{
+    font-family:var(--serif); font-style:normal; font-weight:900;
+    color: color-mix(in oklab, var(--accent-2) 85%, #fff);
+  }
+  .final p{ color: color-mix(in oklab, var(--bg) 78%, transparent); max-width:54ch }
+  .final .btn-primary{ background:var(--bg); color:var(--ink) }
+  .final .btn-ghost{ border-color: color-mix(in oklab, var(--bg) 40%, transparent); color:var(--bg) }
+  .final .btn-ghost:hover{ background: color-mix(in oklab, var(--bg) 10%, transparent) }
+
+  /* ======== Footer ======== */
+  footer.site{ padding: 56px 0 40px; color:var(--ink-2); font-size:14px }
+  .foot-top{
+    display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap:32px;
+    padding-bottom:40px; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:820px){ .foot-top{ grid-template-columns:1fr 1fr } }
+  .foot-top h5{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 14px; font-weight:500;
+  }
+  .foot-top ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px }
+  .foot-top a:hover{ color:var(--accent) }
+  .foot-bot{
+    display:flex; justify-content:space-between; align-items:center; padding-top:24px;
+    color:var(--ink-3); font-family:var(--mono); font-size:12px; letter-spacing:.06em;
+    flex-wrap:wrap; gap:12px;
+  }
+
+  
+  /* ======== Lessons ======== */
+  .lessons-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  @media (max-width:960px){ .lessons-grid{ grid-template-columns:1fr } }
+  .lesson-card{
+    position:relative;
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    padding: 26px 24px;
+    display:flex; flex-direction:column; gap:14px;
+    min-height: 320px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  html[data-theme="dark"] .lesson-card{ background:var(--bg-2) }
+  .lesson-card:hover{ transform:translateY(-2px); box-shadow: 0 20px 40px -28px rgba(15,35,56,.25) }
+  .lesson-featured{
+    background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 8%, #fff) 0%, #fff 60%);
+    border-color: color-mix(in oklab, var(--accent) 35%, var(--line));
+  }
+  html[data-theme="dark"] .lesson-featured{
+    background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 22%, var(--bg-2)) 0%, var(--bg-2) 70%);
+  }
+  .lesson-head{ display:flex; align-items:flex-start; gap:14px }
+  .lesson-num{
+    font-family:var(--serif); font-weight:900;
+    font-size:36px; line-height:1; color:var(--accent);
+    letter-spacing:-.03em;
+    flex:0 0 auto;
+  }
+  .lesson-featured .lesson-num{ color: var(--accent-2) }
+  .lesson-card h3{ margin:0; font-size:21px; font-weight:700; letter-spacing:-.015em; line-height:1.15 }
+  .lesson-sub{ margin:4px 0 0; color:var(--ink-3); font-size:13.5px; font-family:var(--mono); letter-spacing:.02em; line-height:1.4 }
+  .lesson-list{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:9px;
+    font-size:14.5px; color:var(--ink-2); line-height:1.55;
+  }
+  .lesson-list li{
+    position:relative; padding-inline-start:20px;
+  }
+  .lesson-list li::before{
+    content:""; position:absolute;
+    inset-inline-start:0; top:.55em;
+    width:8px; height:8px; border-radius:3px;
+    background: var(--accent);
+  }
+  .lesson-featured .lesson-list li::before{ background: var(--accent-2) }
+  .lesson-foot{ margin-top:auto; padding-top:8px }
+  .lesson-tag{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:5px 10px; border-radius:999px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+    background:var(--bg-2); border:1px solid var(--line); color:var(--ink-2);
+  }
+  .lesson-tag.blue{ background: color-mix(in oklab, var(--accent) 12%, #fff); border-color: color-mix(in oklab, var(--accent) 30%, var(--line)); color: color-mix(in oklab, var(--accent) 65%, var(--ink)) }
+  .lesson-tag.green{ background: color-mix(in oklab, var(--accent-2) 14%, #fff); border-color: color-mix(in oklab, var(--accent-2) 40%, var(--line)); color: color-mix(in oklab, var(--accent-2) 50%, var(--ink)) }
+  .lessons-cta{
+    margin-top:28px;
+    padding: 22px 26px;
+    border:1px dashed var(--line-2); border-radius:18px;
+    background: var(--bg-2);
+    display:flex; justify-content:space-between; align-items:center; gap:18px;
+    flex-wrap:wrap;
+  }
+  .lessons-cta-h{ font-family:var(--serif); font-weight:800; font-size:22px; line-height:1.2; letter-spacing:-.01em; margin-top:6px }
+
+  /* ======== Books ======== */
+  .books-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px }
+  @media (max-width:960px){ .books-grid{ grid-template-columns:1fr 1fr } }
+  @media (max-width:640px){ .books-grid{ grid-template-columns:1fr } }
+  .book-card{
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .book-cover{
+    position:relative;
+    aspect-ratio: 789 / 1113;
+    border-radius:12px;
+    border:1px solid rgba(15,35,56,.08);
+    overflow:hidden;
+    background: var(--bg-2);
+    box-shadow:
+      0 30px 50px -30px rgba(15,35,56,.35),
+      0 2px 4px rgba(15,35,56,.08),
+      inset 12px 0 18px -10px rgba(0,0,0,.18);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .book-card:hover .book-cover{
+    transform: translateY(-3px) rotate(-.5deg);
+    box-shadow:
+      0 40px 60px -32px rgba(15,35,56,.45),
+      0 2px 4px rgba(15,35,56,.08),
+      inset 12px 0 18px -10px rgba(0,0,0,.18);
+  }
+  .book-cover img{
+    position:absolute; inset:0;
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .book-cover::after{
+    content:""; position:absolute; top:0; bottom:0;
+    inset-inline-end: 0;
+    width:6px;
+    background: linear-gradient(to left, rgba(0,0,0,.18), transparent);
+    pointer-events:none;
+  }
+  .book-badge{
+    position:absolute; z-index:2;
+    inset-block-start: 14px; inset-inline-end: 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
+    padding: 5px 11px; border-radius: 999px;
+    background: rgba(15,35,56,.78); color:#fff;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  }
+  .book-cover-inner{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .book-kicker{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    opacity:.7;
+  }
+  .book-title-cover{
+    font-family:var(--serif); font-weight:900;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height:.95; letter-spacing:-.03em;
+  }
+  .book-sub-cover{
+    font-family:var(--sans); font-weight:500;
+    font-size:14px; line-height:1.45; opacity:.85;
+    margin-top:6px;
+  }
+  .book-body h3{ margin:0; font-size:19px; font-weight:700; letter-spacing:-.01em }
+  .book-body p{ margin:8px 0 0; color:var(--ink-2); font-size:14.5px; line-height:1.6 }
+  .book-tags{ display:flex; gap:6px; flex-wrap:wrap; margin-top:12px }
+  .books-cta{
+    margin-top:36px;
+    padding: 22px 26px;
+    border-radius:18px;
+    background: var(--ink); color:var(--bg);
+    display:flex; justify-content:space-between; align-items:center; gap:18px;
+    flex-wrap:wrap;
+    position:relative; overflow:hidden;
+  }
+  .books-cta::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(400px 200px at 90% 0%, color-mix(in oklab, var(--accent) 50%, transparent), transparent 70%),
+      radial-gradient(400px 200px at 10% 100%, color-mix(in oklab, var(--accent-2) 40%, transparent), transparent 70%);
+    pointer-events:none; opacity:.7;
+  }
+  .books-cta > *{ position:relative }
+  .books-cta-h{ font-family:var(--serif); font-weight:800; font-size:22px; line-height:1.2; letter-spacing:-.01em }
+  .books-cta p{ margin:6px 0 0; color: color-mix(in oklab, var(--bg) 78%, transparent); font-size:14.5px }
+  .books-cta .btn-primary{ background: var(--bg); color: var(--ink) }
+
+  /* ======== Real-photo avatars on testimonial cards ======== */
+  .card-t .avatar img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .card-t .avatar.photo{
+    background: var(--bg-2);
+    overflow:hidden;
+    padding:0;
+  }
+
+  /* ======== Tweaks panel ======== */
+  #tweaks{
+    position:fixed; inset-inline-end:20px; inset-block-end:20px; z-index:100;
+    background: color-mix(in oklab, var(--bg) 96%, transparent);
+    backdrop-filter: blur(14px); border:1px solid var(--line-2); border-radius:16px;
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.06);
+    width: 320px; font-family:var(--sans); color:var(--ink);
+    display:none; overflow:hidden;
+  }
+  #tweaks.open{ display:block }
+  .tw-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 12px 14px; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+  }
+  .tw-body{ padding: 14px; display:flex; flex-direction:column; gap:14px; max-height: 72vh; overflow:auto }
+  .tw-row{ display:flex; flex-direction:column; gap:6px }
+  .tw-row label{ font-size:12px; color:var(--ink-2); font-weight:600; display:flex; justify-content:space-between; align-items:center }
+  .tw-row label code{ font-family:var(--mono); font-size:11px; color:var(--ink-3) }
+  .tw-swatches{ display:flex; gap:8px; flex-wrap:wrap }
+  .sw-btn{ width:28px; height:28px; border-radius:8px; border:1px solid var(--line-2); cursor:pointer; position:relative }
+  .sw-btn.active::after{ content:""; position:absolute; inset:-4px; border:1px solid var(--ink); border-radius:12px }
+  .tw-seg{ display:grid; grid-template-columns: repeat(3,1fr); gap:4px; background:var(--bg-2); border:1px solid var(--line); border-radius:10px; padding:3px }
+  .tw-seg button{ padding:7px 8px; border-radius:8px; font-size:12px; font-weight:600; color:var(--ink-2) }
+  .tw-seg button.active{ background:var(--ink); color:var(--bg) }
+  .tw-range{ -webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--line-2); border-radius:999px; outline:none }
+  .tw-range::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background:var(--accent); border:2px solid var(--bg); box-shadow:0 0 0 1px var(--line-2) }
+  .tw-input, .tw-textarea{ width:100%; padding:9px 10px; background:var(--bg); color:var(--ink); border:1px solid var(--line-2); border-radius:10px; font:inherit; font-size:13px; resize:vertical; font-family:var(--sans) }
+  .tw-textarea{ min-height:76px; line-height:1.4 }
+  .tw-close{ width:24px; height:24px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--line-2); color:var(--ink-2) }
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#FBFAF5"/>
+    <g transform="translate(200 200)">
+      <circle r="120" fill="none" stroke="#2AA5CF" stroke-width="3"/>
+      <circle r="80" fill="#66B87A" opacity=".85"/>
+      <circle cx="0" cy="-30" r="22" fill="#FBFAF5"/>
+      <circle cx="-30" cy="20" r="14" fill="#FBFAF5"/>
+      <circle cx="28" cy="22" r="10" fill="#FBFAF5"/>
+      <text y="200" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="44" fill="#0F2338">MediLab</text>
+    </g>
+  </svg>
+</template>
+
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#">
+      <img src="assets/logo.jpg" alt="MediLab" />
+      <span>
+        MediLab
+        <span class="sub">מדע קצר ולעניין</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#about">על נתנאל</a>
+      <a href="#lessons">שיעורים פרטיים</a>
+      <a href="#books">ספרים</a>
+      <a href="#testi">ממליצים</a>
+      <a href="#faq">שאלות</a>
+    </nav>
+    <a href="#cta" class="top-cta">
+      קבעו שיעור היכרות
+      <span class="arr">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-kicker">
+        <span class="pill"><span class="dot"></span> בגרות ביולוגיה · 5 יח"ל</span>
+        <span class="mono" style="color:var(--ink-3);font-size:11px;letter-spacing:.12em">שיעורים פרטיים · ספרי עזר</span>
+      </div>
+      <h1 class="display" id="hl"></h1>
+      <p class="hero-sub" id="sub"></p>
+      <div class="hero-ctas">
+        <a href="#cta" class="btn btn-primary" id="cta1">קבעו שיעור היכרות <span class="arr">→</span></a>
+        <a href="#books" class="btn btn-ghost">הספרים שלי</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>10<span class="unit">שנות הוראה</span></b> בבית ספר תיכון, 5 יח״ל</div>
+        <div><b>אחד-על-אחד<span class="unit">או קבוצות</span></b> מקוון בזום או פרונטלי</div>
+        <div><b>3<span class="unit">ספרי עזר</span></b> מונחון · מחקרים · סיכומון</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="nb" aria-hidden="true">
+        <div class="nb-head">
+          <span>LAB // LEARNING ENGINE</span>
+          <span class="chip"><span class="dot"></span> LIVE</span>
+        </div>
+        <div class="nb-q">
+          <div class="qnum">שאלה אמריקאית · נושא ליבה → מערכת החיסון · רמה 3</div>
+          <h5>איזה מהמשפטים מתאר נכון את ההבדל בין תגובה חיסונית ראשונית לשניונית?</h5>
+          <ul>
+            <li><span class="mark">א</span> <span>התגובה הראשונית מהירה יותר והשניונית איטית יותר.</span></li>
+            <li class="wrong"><span class="mark">ב</span> <span>התגובה הראשונית מייצרת IgG והשניונית IgM.</span></li>
+            <li class="correct"><span class="mark">ג</span> <span>השניונית מהירה וחזקה יותר בזכות תאי זיכרון.</span></li>
+            <li><span class="mark">ד</span> <span>אין הבדל — מדובר באותו מנגנון מולקולרי.</span></li>
+          </ul>
+        </div>
+        <div class="nb-feedback">
+          משוב מנתנאל: מסיח ב׳ הוא ״היפוך בין סיבה ותוצאה״ — נפל לך לאחרונה גם בשאלה 217. פתח את סרטון 14 בפרק המערכת החיסונית.
+        </div>
+        <div class="nb-meta">
+          <div class="nb-readout">
+            <div class="k">התקדמות נושא</div>
+            <div class="v">78<small>%</small></div>
+          </div>
+          <div class="nb-readout">
+            <div class="k">ציון צפוי</div>
+            <div class="v">92<small>/100</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="block" id="about" data-screen-label="About">
+  <div class="wrap about">
+    <div class="about-card">
+      <div class="portrait" role="img" aria-label="נתנאל יוחאי מדינה">
+        <img src="assets/portrait.png" alt="נתנאל יוחאי מדינה — מורה לביולוגיה" />
+        <span class="cap">נתנאל יוחאי מדינה · מורה לביולוגיה</span>
+      </div>
+      <div style="position:relative; display:flex; flex-direction:column; gap:10px">
+        <span class="num" style="color:var(--accent)">01 — המורה</span>
+        <div style="font-family:var(--serif); font-weight:800; font-size:20px; line-height:1.15; letter-spacing:-.01em">נתנאל יוחאי מדינה</div>
+        <div style="color:var(--ink-2); font-size:13px; line-height:1.5">B.Sc · M.Teach · M.Sc<br/>10 שנות הוראה בתיכון</div>
+        <div style="color:var(--ink-3); font-family:var(--mono); font-size:10px; letter-spacing:.1em">BIOLOGY · MATRICULATION</div>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <span class="num">02 — הסיפור</span>
+      <h2>נעים להכיר —<br/>אני <em>נתנאל.</em></h2>
+      <p>מורה לביולוגיה וביוטכנולוגיה עם 10 שנות ניסיון בתיכון. מעביר שיעורים פרטיים ל-5 יח״ל — אחד-על-אחד או בקבוצות קטנות, מקוון בזום או פרונטלי בתל אביב. אני מאמין שלכל תלמיד יש דרך משלו להבין, והתפקיד שלי הוא למצוא אותה.</p>
+      <p>לצד ההוראה כתבתי סדרת ספרי עזר שמסודרים בדיוק כמו שתוכנית הלימודים דורשת: מונחון מלא של 452 מושגים, חוברת מחקרים מנותחים וסיכומון של החומר כולו — כלים שאני משתמש בהם בשיעורים עצמם.</p>
+      <div class="about-tags">
+        <span class="about-tag blue">B.Sc ביולוגיה · חיפה</span>
+        <span class="about-tag green">M.Teach הוראת ביולוגיה · אורנים</span>
+        <span class="about-tag blue">M.Sc הוראת המדעים · ויצמן</span>
+        <span class="about-tag">10 שנות הוראה בתיכון</span>
+        <span class="about-tag green">ביולוגיה + ביוטכנולוגיה</span>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px">
+        <a href="https://wa.me/972524295838" target="_blank" rel="noopener" class="btn btn-primary" style="padding:11px 18px; font-size:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.4 4.6.8.3 1.4.5 1.8.7.8.2 1.5.2 2.1.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          וואטסאפ · 052-429-5838
+        </a>
+        <a href="https://instagram.com/Bio_medilab" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:11px 18px; font-size:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          @Bio_medilab
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LESSONS ================= -->
+<section class="block" id="lessons" data-screen-label="Lessons">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="num">03 — שיעורים פרטיים</span>
+        <h2>שיעורים פרטיים<br/>ב<em>ביולוגיה 5 יח״ל.</em></h2>
+      </div>
+      <p class="lead">אחד-על-אחד או בקבוצות קטנות של עד 4 תלמידים. מקוון בזום עם לוח אינטראקטיבי, או פרונטלי במרכז הלמידה בתל אביב. מתאים לכיתות י׳—י״ב, השלמות, מגמת ביוטכנולוגיה וחזרה לפני בגרות.</p>
+    </div>
+
+    <div class="lessons-grid">
+      <article class="lesson-card">
+        <div class="lesson-head">
+          <span class="lesson-num">01</span>
+          <div>
+            <h3>אחד-על-אחד</h3>
+            <p class="lesson-sub">שיעור פרטי מלא, 60 דקות · מקוון או פרונטלי</p>
+          </div>
+        </div>
+        <ul class="lesson-list">
+          <li>תוכנית עבודה אישית על בסיס אבחון ראשוני</li>
+          <li>התאמה מדויקת לקצב וסגנון של התלמיד</li>
+          <li>מעקב שבועי + תרגול מובנה בין שיעורים</li>
+          <li>דגש על אסטרטגיות פתרון לבגרות</li>
+        </ul>
+        <div class="lesson-foot">
+          <span class="lesson-tag blue">מומלץ להשלמות ופערים</span>
+        </div>
+      </article>
+
+      <article class="lesson-card lesson-featured">
+        <div class="lesson-head">
+          <span class="lesson-num">02</span>
+          <div>
+            <h3>קבוצה קטנה</h3>
+            <p class="lesson-sub">עד 4 תלמידים · 90 דקות שבועיות</p>
+          </div>
+        </div>
+        <ul class="lesson-list">
+          <li>לימוד דינמי לצד חברים ברמה דומה</li>
+          <li>מסלול סדור לאורך השנה — נושא אחרי נושא</li>
+          <li>תרגולי מבחנים ופורמט בגרות אחת לחודש</li>
+          <li>עלות נמוכה יותר מפרטי — עם ליווי דומה</li>
+        </ul>
+        <div class="lesson-foot">
+          <span class="lesson-tag green">הכי פופולרי</span>
+        </div>
+      </article>
+
+      <article class="lesson-card">
+        <div class="lesson-head">
+          <span class="lesson-num">03</span>
+          <div>
+            <h3>מרתון בגרות</h3>
+            <p class="lesson-sub">מפגשים אינטנסיביים לקראת מועד הבגרות</p>
+          </div>
+        </div>
+        <ul class="lesson-list">
+          <li>חזרה מקיפה על כל נושאי הליבה וההעמקה</li>
+          <li>פתרון בגרויות קודמות בליווי אישי</li>
+          <li>אסטרטגיות לשאלות אמריקאיות ופתוחות</li>
+          <li>מיקוד בנושאים ״חמים״ של המועד הקרוב</li>
+        </ul>
+        <div class="lesson-foot">
+          <span class="lesson-tag">לקראת מועד הבגרות</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="lessons-cta">
+      <div>
+        <span class="num">להתאמה אישית</span>
+        <div class="lessons-cta-h">לא בטוחים מה הכי מתאים? שיעור היכרות ראשון על חשבוני.</div>
+      </div>
+      <a href="https://wa.me/972524295838" target="_blank" rel="noopener" class="btn btn-primary">קבעו שיעור היכרות <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKS ================= -->
+<section class="block books-block" id="books" data-screen-label="Books">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="num">04 — ספרים</span>
+        <h2>ספרי עזר ש<em>כתבתי.</em></h2>
+      </div>
+      <p class="lead">סדרה של ספרי עזר לבגרות בביולוגיה, מותאמים לתוכנית הלימודים החדשה לשנת תשפ״ו. כתובים, מאויירים ומנוקדים — נגישים, תמציתיים ומדויקים.</p>
+    </div>
+
+    <div class="books-grid">
+      <article class="book-card">
+        <div class="book-cover">
+          <span class="book-badge">01</span>
+          <img src="assets/book-questions.png" alt="ספר השאלות — הכנה לבגרות בביולוגיה" loading="lazy" />
+        </div>
+        <div class="book-body">
+          <h3>ספר השאלות — 1,674 שאלות בגרות</h3>
+          <p>אוסף שאלות הבגרות המלא בנושאי הליבה וההעמקה, בהתאמה לתוכנית הלימודים החדשה בביולוגיה 5 יח״ל. מסודר לפי נושא ותת-נושא — תרגול ממוקד וסגירה של כל הפינות.</p>
+          <div class="book-tags">
+            <span class="about-tag blue">מהדורה II</span>
+            <span class="about-tag green">1,674 שאלות</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover">
+          <span class="book-badge">02</span>
+          <img src="assets/book-research.png" alt="50 קטעי מחקר בביולוגיה" loading="lazy" />
+        </div>
+        <div class="book-body">
+          <h3>50 קטעי מחקר בביולוגיה</h3>
+          <p>50 קטעי מחקר מתוך בחינות הבגרות בביולוגיה ל-5 יח״ל, עם שאלות מקוריות, הצעות לפתרון והסברים מפורטים. תרגול אמיתי לחלק קטעי המחקר בבחינה.</p>
+          <div class="book-tags">
+            <span class="about-tag green">פורמט בגרות</span>
+            <span class="about-tag">פתרונות מלאים</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover">
+          <span class="book-badge">03</span>
+          <img src="assets/book-glossary.png" alt="מילון מונחים בביולוגיה" loading="lazy" />
+        </div>
+        <div class="book-body">
+          <h3>מילון מונחים בביולוגיה</h3>
+          <p>מילון מודפס של 452 מושגים לתלמידי תיכון, מנוקד על ידי DICTA ומאויר. מחולק לפי נושאי תוכנית הלימודים החדשה — ליבה והעמקה. תשפ״ו / 2026.</p>
+          <div class="book-tags">
+            <span class="about-tag blue">תשפ״ו · 2026</span>
+            <span class="about-tag green">452 מושגים</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="books-cta">
+      <div class="books-cta-text">
+        <div class="books-cta-h">רוצים לרכוש ספר או לקבל דגימה?</div>
+        <p>שלחו לי הודעה בוואטסאפ ואסגור איתכם הכל — מהיר ובלי התחייבות.</p>
+      </div>
+      <a href="https://wa.me/972524295838?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%A1%D7%A4%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener" class="btn btn-primary">לרכישה בוואטסאפ <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="block" id="testi" data-screen-label="Testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="num">06 — ממליצים</span>
+        <h2>מה תלמידים<br/><em>כותבים עליי.</em></h2>
+      </div>
+      <p class="lead">שמונה תלמידים שלי, בלשונם. הציון בכל פרצוף הוא מה שקיבלו בבגרות — אבל הסיפור האמיתי הוא מה שהם כותבים מסביב.</p>
+    </div>
+
+    <div class="testi-grid" style="margin-top:36px">
+
+      <div class="card-t">
+        <span class="grade-badge"><span class="lbl">קיבלה</span>100</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל תמיד היה לי לאוזן קשבת, ולימוד איתו השאיר עליי חותם אמיתי. הוא ראה את התלמידים כבני אדם, לא רק כתלמידים בכיתה. קשוב, סבלני, בגובה העיניים — והיה מוכן לעצור ולהסביר שוב, גם מיליון פעם בדרכים שונות. ביולוגיה היה בין השיעורים היחידים שאהבתי, והוא הסיבה לכך.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-3.png" alt="יולי א׳." loading="lazy" /></div>
+          <div>
+            <div class="name">יולי א׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge b"><span class="lbl">קיבלה</span>98</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל מורה מעורר השראה בכמות תשומת הלב שהפגנת כלפי כל קושי שתלמידים חוו, ועזרת לנווט אותם להצלחה במבחנים :) תמיד היה חשוב לך להרחיב את האופקים ולהציג את התוכן בביולוגיה בצורה הכי מעניינת — מצגות מרתקות, מחקרים וניסויים מדהימים. הפקנו המון ידע ובעיקר אין-סוף סקרנות.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-1.png" alt="דניאלה ק׳." loading="lazy" /></div>
+          <div>
+            <div class="name">דניאלה ק׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge"><span class="lbl">קיבל</span>97</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל הוא הרבה יותר מסתם מורה, הוא המורה הטוב ביותר שזכיתי ללמוד אצלו. היכולת להפוך כל שיעור לחוויה היא נדירה, והוא דואג להעמיק ולהרחיב הרבה מעבר לתוכנית הלימודים — מתוך תשוקה אמיתית לידע. כשתלמיד שואל שאלה, הוא חוקר לעומק ומחזיר תשובה מפורטת וברורה.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-4.png" alt="איתן ו׳." loading="lazy" /></div>
+          <div>
+            <div class="name">איתן ו׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge b"><span class="lbl">קיבלה</span>98</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל הוא מורה מיוחד ולא שגרתי. מעורר השראה, נותן יחס אישי לכל תלמיד ומאמין בכולם. יודע למצוא את הדימוי המדויק שמסביר גם נושאים מורכבים, ומעביר שיעורים בצחוק ובחן. דורש מכל אחד את המקסימום ודוחף לקצה היכולת, כי ההצלחה שלנו חשובה לו.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-6.png" alt="רוני ב׳." loading="lazy" /></div>
+          <div>
+            <div class="name">רוני ב׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge"><span class="lbl">קיבלה</span>95</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל מורה מעולה — גם בצורה שהוא מביא את הלימודים באופן נגיש עם דוגמאות מהעולם האמיתי להבנה עמוקה, וגם בגישה החיובית שלו. מעבר לחומר, הוא מורה שאוהב להרחיב את הידע, ומצית אהבה אצל התלמידים למדעים וביולוגיה בפרט.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-2.png" alt="שון ס׳." loading="lazy" /></div>
+          <div>
+            <div class="name">שון ס׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge b"><span class="lbl">קיבלה</span>88</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל היה הרבה מעבר למורה עבורי. כשהיה לי קשה בלימודים, הוא תמיד דאג להבין מה הקושי האמיתי, ולהתאים את העזרה למה שאני צריכה באותו רגע. בלי העזרה המקצועית שלו לא הייתי מגיעה לציון שהגעתי אליו, ובלי האמונה שלו לא הייתי נמצאת במקום שאליו שאפתי להגיע. הלוואי ולכל תלמיד יהיה נתנאל.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-5.png" alt="אמלי ס׳." loading="lazy" /></div>
+          <div>
+            <div class="name">אמלי ס׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge"><span class="lbl">קיבלה</span>85</span>
+        <div class="mark">"</div>
+        <blockquote>בתחילת כיתה י״א הגעתי לכיתה של נתנאל. ביולוגיה הרגישה לי כמו שפה זרה, והמבחן הראשון שלי נגמר ב-40. החלטתי שאני שונאת את זה — אבל נתנאל לא הסכים. השלמנו ביחד יותר משנה של פערים. הוא היה איתי גם כשרציתי לוותר, האמין בי והזכיר לי שאני מסוגלת.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-7.png" alt="תהל ח׳." loading="lazy" /></div>
+          <div>
+            <div class="name">תהל ח׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-t">
+        <span class="grade-badge b"><span class="lbl">קיבל</span>89</span>
+        <div class="mark">"</div>
+        <blockquote>נתנאל תמיד דאג לי כמורה — שאני אצליח בצורה הכי טובה שאפשר. הסביר את החומר בצורה הכי ברורה, ותמיד ענה על שאלות גם מחוץ לשיעור. אצל נתנאל באמת אפשר להגיד: מי שרצה — הצליח. הוא דאג לנו גם לימודית וגם אישית, וחיבר בין תלמידים שמתקשים לחברים שלומדים טוב.</blockquote>
+        <div class="who">
+          <div class="avatar photo" aria-hidden="true"><img src="assets/rec-8.png" alt="יונתן מ׳." loading="lazy" /></div>
+          <div>
+            <div class="name">יונתן מ׳.</div>
+            <div class="role">ביולוגיה · 5 יח״ל</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="block" id="faq" data-screen-label="FAQ">
+  <div class="wrap" style="max-width:1000px">
+    <div class="section-head">
+      <div>
+        <span class="num">08 — שאלות</span>
+        <h2>מה בדרך כלל<br/><em>שואלים אותי.</em></h2>
+      </div>
+      <p class="lead">לא מצאתם תשובה? כתבו לי בוואטסאפ ל-052-429-5838 או באינסטגרם @Bio_medilab ואחזור בהקדם.</p>
+    </div>
+
+    <div class="faq">
+      <details class="q" open>
+        <summary><span>האם התוכן מותאם לתוכנית הלימודים החדשה?</span><span class="plus">+</span></summary>
+        <div class="answer">כן. כל 1,600 השאלות ו-47 קטעי המחקר קוטלגו לפי הנושאים ותתי-הנושאים של תוכנית הלימודים החדשה בביולוגיה (5 יח״ל), כולל נושאי הליבה ונושאי ההעמקה.</div>
+      </details>
+      <details class="q">
+        <summary><span>איך עובד ״עץ ההתקדמות״?</span><span class="plus">+</span></summary>
+        <div class="answer">הגזע הוא ״ביולוגיה״, שמתפצל לשני תת-גזעים: ״נושא ליבה״ (3 ענפים עבים) ו״נושאי העמקה״ (3 ענפים). כל ענף מתמלא בהתאם לאחוזי ההצלחה שלך בשאלות באותו נושא — מגלים במבט אחד איפה יש פער ואיפה שולטים.</div>
+      </details>
+      <details class="q">
+        <summary><span>מה זה ״פירוק והרכבה״ ו״אסטרטגיית השירשור״?</span><span class="plus">+</span></summary>
+        <div class="answer">״פירוק והרכבה״ היא האסטרטגיה שלי לשאלות אמריקאיות — מפרקים כל מסיח, מזהים מה הוא מנסה להוליך שולל (סדר הפוך, מגמה הפוכה, תפיסה שגויה, היפוך סיבה ותוצאה) ומחזירים את השאלה ללוגיקה נכונה. ״שירשור״ היא מבנה טיעון בשאלות פתוחות — כל משפט מחבר את הקודם לתשובה המלאה.</div>
+      </details>
+      <details class="q">
+        <summary><span>השיעורים הפרטיים מקוונים או פרונטליים?</span><span class="plus">+</span></summary>
+        <div class="answer">שניהם. בחירה שלכם. מקוון בזום עם לוח אינטראקטיבי, או פרונטלי במרכז הלמידה של MediLab בת״א בקבוצות קטנות של עד 4 תלמידים.</div>
+      </details>
+      <details class="q">
+        <summary><span>יש גישה גם למורים?</span><span class="plus">+</span></summary>
+        <div class="answer">כן. מורים מקבלים גישה ל״מחולל המבחנים״ — ממשק ייעודי שמאפשר לבנות מבחנים לפי המתכונת של בחינות הבגרות, לבחור נושאים, רמות קושי, טיפוסי מסיחים — והפלט הוא PDF מוכן להדפסה. צרו איתי קשר למסלול מורים.</div>
+      </details>
+      <details class="q">
+        <summary><span>מה כוללים הספרים — ״מונחון״ ו״סיכומון״?</span><span class="plus">+</span></summary>
+        <div class="answer">״מונחון״ הוא מילון מודפס של 444 המונחים, בעברית מנוקדת ובאנגלית. ״סיכומון״ הוא סיכום מלא של תוכנית הלימודים, מסודר ותמציתי. שניהם נמכרים בנפרד באתר או כחלק מהמסלולים.</div>
+      </details>
+      <details class="q">
+        <summary><span>ביטול והתחייבות?</span><span class="plus">+</span></summary>
+        <div class="answer">אין התחייבות. המנויים הם חודשיים וניתנים לביטול בכל עת מתוך האזור האישי. מנוי שנתי מקנה 20% הנחה ומאפשר החזר יחסי בביטול בחצי הראשון.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="cta" data-screen-label="Final CTA">
+  <div class="wrap final-inner">
+    <div>
+      <span class="num" style="color: color-mix(in oklab, var(--bg) 70%, transparent)">09 — הצעד הבא</span>
+      <h2 style="margin-top:18px">הביולוגיה שלך מחכה<br/>ל<em>בגרות שלך.</em></h2>
+    </div>
+    <div>
+      <p style="margin:0 0 24px">תלמידים שלי הגיעו ל-100, 98, 95. הבאה בתור יכולה להיות אתם. 14 יום ניסיון חינם, ללא כרטיס אשראי.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#">התחילו 14 ימי ניסיון <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/972524295838" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#" style="margin-bottom:14px">
+          <img src="assets/logo.jpg" alt="MediLab" />
+          <span>MediLab<span class="sub">מדע קצר ולעניין</span></span>
+        </a>
+        <p style="max-width:36ch;margin:14px 0 0;color:var(--ink-3)">פרויקט חינוכי של נתנאל — הכנה לבגרות בביולוגיה 5 יח״ל, מותאמת לתוכנית הלימודים החדשה.</p>
+      </div>
+      <div>
+        <h5>ללמידה</h5>
+        <ul>
+          <li><a href="#tools">מאגר שאלות</a></li>
+          <li><a href="#tools">קורס מקוון</a></li>
+          <li><a href="#tools">מילון מונחים</a></li>
+          <li><a href="#tools">מעבדות רטובות</a></li>
+          <li><a href="#tools">פורום + פיד</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>למורים</h5>
+        <ul>
+          <li><a href="#">מחולל מבחנים</a></li>
+          <li><a href="#">מונחון · סיכומון</a></li>
+          <li><a href="#">שיתופי פעולה</a></li>
+          <li><a href="#">פודקאסטים</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>יצירת קשר</h5>
+        <ul>
+          <li><a href="https://wa.me/972524295838" target="_blank" rel="noopener">וואטסאפ · 052-429-5838</a></li>
+          <li><a href="tel:+972524295838">052-429-5838</a></li>
+          <li><a href="https://instagram.com/Bio_medilab" target="_blank" rel="noopener">Instagram · @Bio_medilab</a></li>
+          <li>א׳—ה׳ · 10:00—21:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 MEDILAB · נתנאל</span>
+      <span>הכנה לבגרות בביולוגיה · 5 יח״ל</span>
+      <span>פרטיות · תנאי שימוש · נגישות</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= TWEAKS ================= -->
+<div id="tweaks" role="dialog" aria-label="Tweaks">
+  <div class="tw-head">
+    <span>Tweaks</span>
+    <button class="tw-close" id="twClose" aria-label="close">×</button>
+  </div>
+  <div class="tw-body">
+    <div class="tw-row">
+      <label>צבע ראשי <code id="accHex"></code></label>
+      <div class="tw-swatches" id="accSwatches">
+        <button class="sw-btn" data-color="#2AA5CF" style="background:#2AA5CF"></button>
+        <button class="sw-btn" data-color="#1B7FB0" style="background:#1B7FB0"></button>
+        <button class="sw-btn" data-color="#3E8FCC" style="background:#3E8FCC"></button>
+        <button class="sw-btn" data-color="#0F2338" style="background:#0F2338"></button>
+        <button class="sw-btn" data-color="#6B4BD6" style="background:#6B4BD6"></button>
+        <button class="sw-btn" data-color="#C75B3F" style="background:#C75B3F"></button>
+      </div>
+    </div>
+    <div class="tw-row">
+      <label>ערכת נושא</label>
+      <div class="tw-seg" id="themeSeg">
+        <button data-val="paper">נייר</button>
+        <button data-val="fresh">רענן</button>
+        <button data-val="dark">כהה</button>
+      </div>
+    </div>
+    <div class="tw-row">
+      <label>וריאציית Hero</label>
+      <div class="tw-seg" id="heroSeg">
+        <button data-val="editorial">עריכתי</button>
+        <button data-val="manifesto">מרכזי</button>
+        <button data-val="data">דאטה</button>
+      </div>
+    </div>
+    <div class="tw-row">
+      <label>גודל טיפוגרפיה <code id="tsVal">×1.00</code></label>
+      <input id="tsRange" class="tw-range" type="range" min="0.85" max="1.2" step="0.01" />
+    </div>
+    <div class="tw-row">
+      <label>כותרת ראשית <code>*מילה*</code> להדגשה</label>
+      <textarea id="hlEdit" class="tw-textarea" rows="3"></textarea>
+    </div>
+    <div class="tw-row">
+      <label>תת-כותרת</label>
+      <textarea id="subEdit" class="tw-textarea" rows="4"></textarea>
+    </div>
+    <div class="tw-row">
+      <label>כפתור CTA</label>
+      <input id="ctaEdit" class="tw-input" type="text" />
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const T = window.__TWEAKS__;
+  const root = document.documentElement;
+
+  const setAccent = (hex) => {
+    root.style.setProperty('--accent', hex);
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+    const yiq = (r*299 + g*587 + b*114)/1000;
+    root.style.setProperty('--accent-ink', yiq > 150 ? '#0F2338' : '#fff');
+    document.querySelectorAll('#accSwatches .sw-btn').forEach(s => s.classList.toggle('active', s.dataset.color.toLowerCase() === hex.toLowerCase()));
+    const hx = document.getElementById('accHex'); if (hx) hx.textContent = hex.toUpperCase();
+  };
+  const setTheme = (v) => {
+    root.setAttribute('data-theme', v);
+    document.querySelectorAll('#themeSeg button').forEach(b => b.classList.toggle('active', b.dataset.val === v));
+  };
+  const setHero = (v) => {
+    root.setAttribute('data-hero', v);
+    document.querySelectorAll('#heroSeg button').forEach(b => b.classList.toggle('active', b.dataset.val === v));
+  };
+  const setScale = (n) => {
+    root.style.setProperty('--type-scale', n);
+    const tv = document.getElementById('tsVal'); if (tv) tv.textContent = '×' + Number(n).toFixed(2);
+    const r = document.getElementById('tsRange'); if (r) r.value = n;
+  };
+  const escapeHTML = (s) => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const renderCopy = () => {
+    const hl = document.getElementById('hl');
+    const raw = T.headline || '';
+    const esc = escapeHTML(raw).replace(/\*(.+?)\*/g, '<em>$1</em>');
+    hl.innerHTML = esc;
+    document.getElementById('sub').textContent = T.subhead || '';
+    const cta1 = document.getElementById('cta1');
+    if (cta1) cta1.innerHTML = `${escapeHTML(T.cta || '')} <span class="arr">→</span>`;
+    document.querySelectorAll('.top-cta').forEach(el => el.innerHTML = `${escapeHTML(T.cta || '')} <span class="arr">→</span>`);
+  };
+
+  setAccent(T.accent);
+  setTheme(T.theme);
+  setHero(T.heroVariant);
+  setScale(T.typeScale);
+  renderCopy();
+
+  document.getElementById('hlEdit').value = T.headline;
+  document.getElementById('subEdit').value = T.subhead;
+  document.getElementById('ctaEdit').value = T.cta;
+
+  const send = (edits) => {
+    Object.assign(T, edits);
+    try { window.parent.postMessage({type: '__edit_mode_set_keys', edits}, '*'); } catch(e){}
+  };
+
+  document.getElementById('accSwatches').addEventListener('click', (e) => {
+    const b = e.target.closest('.sw-btn'); if (!b) return;
+    setAccent(b.dataset.color); send({accent: b.dataset.color});
+  });
+  document.getElementById('themeSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    setTheme(b.dataset.val); send({theme: b.dataset.val});
+  });
+  document.getElementById('heroSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    setHero(b.dataset.val); send({heroVariant: b.dataset.val});
+  });
+  document.getElementById('tsRange').addEventListener('input', (e) => {
+    const n = parseFloat(e.target.value); setScale(n); send({typeScale: n});
+  });
+  document.getElementById('hlEdit').addEventListener('input', (e) => {
+    T.headline = e.target.value; renderCopy(); send({headline: e.target.value});
+  });
+  document.getElementById('subEdit').addEventListener('input', (e) => {
+    T.subhead = e.target.value; renderCopy(); send({subhead: e.target.value});
+  });
+  document.getElementById('ctaEdit').addEventListener('input', (e) => {
+    T.cta = e.target.value; renderCopy(); send({cta: e.target.value});
+  });
+
+  const panel = document.getElementById('tweaks');
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') panel.classList.add('open');
+    if (d.type === '__deactivate_edit_mode') panel.classList.remove('open');
+  });
+  document.getElementById('twClose').addEventListener('click', () => {
+    panel.classList.remove('open');
+    try { window.parent.postMessage({type: '__deactivate_edit_mode'}, '*'); } catch(e){}
+  });
+  try { window.parent.postMessage({type: '__edit_mode_available'}, '*'); } catch(e){}
+})();
+</script>
+</body>
+</html>
